@@ -1,0 +1,8 @@
+.container {
+  position: relative;
+  top: 200px;
+}
+
+.card-title {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,68 @@
+<div *ngIf="loading">
+  <app-loadder></app-loadder>
+</div>
+
+<section class="h-100 mt-3 section mb-3" *ngIf="!loading">
+  <div class="container h-100">
+    <div class="row justify-content-md-center h-100">
+      <div class="card-wrapper">
+        <div class="card fat">
+          <div class="card-body" style="background-color: white">
+            <div class="divImg mt-3"><img src="assets/logo.png" class="img" /></div>
+            <h2 class="card-title text-center mt-3" id="titulo">
+              Casamento Matheus & Hávyla
+            </h2>
+            <hr />
+            <h6 class="card-title text-center mt-3">
+              Seja bem vindo ao site do nosso casamento, aqui você encontra as informações sobre o local da cerimônia, a
+              lista de presentes e ainda confirma sua presença.
+            </h6>
+
+            <div class="row1-container mb text-center">
+              <i class="fa fa-shirt"></i>
+              <div class="box blue">
+                <div class="card-icon">
+                  <i class="fa fa-map-marker fa-3x"></i>
+                </div>
+                <h5>Local da Cerimônia</h5>
+                <p class="text-center mt-3 card-text">
+                  Veja onde vamos celebrar nossa união.
+                </p>
+                <a target="_blank" href="https://www.google.com/maps/place/Igreja+Metodista+de+Palmas/@-10.2334496,-48.3229506,15z/data=!4m5!3m4!1s0x0:0xe24ef60f66597721!8m2!3d-10.2334496!4d-48.3229506"
+                  class="card-button"> Ver Localização</a>
+              </div>
+
+              <div class="box blue">
+                <div class="card-icon">
+                  <i class="fa fa-gift fa-3x"></i>
+                </div>
+                <h5>Lista de Presentes</h5>
+                <p class="text-center mt-3 card-text">
+                  Veja nossa lista de presentes.
+                </p>
+                <a routerLink="/lista-presentes" class="card-button"> Ver mais</a>
+              </div>
+
+              <div class="box blue">
+                <div class="card-icon">
+                  <i class="fa fa-user fa-3x"></i>
+                </div>
+                <h5>Confirmação de Presença</h5>
+                <p class="text-center mt-3 card-text">
+                  Confirme sua presença na nossa cerimônia.
+                </p>
+                <a routerLink="/confirmar-presenca" class="card-button"> Ver mais</a>
+              </div>
+            </div>
+
+            <br /><br />
+            <hr />
+
+            <app-footer></app-footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
