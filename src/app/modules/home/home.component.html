@@ -18,6 +18,26 @@
               lista de presentes e ainda confirma sua presença.
             </h6>
 
+            <h5 class="card-title text-center mt-3">
+              Faltam exatamente:
+            </h5>
+            <div class="content" [class.move]="animate">
+              <div class="content-timer">
+                <div class="content-d">
+                  <div class="time">{{ days | number:'2.0'}}<span>d</span></div>
+                </div>
+                <div class="content-h">
+                  <div class="time">{{ hours | number:'2.0'}}<span>h</span></div>
+                </div>
+                <div class="content-m">
+                  <div class="time">{{ minutes | number:'2.0'}}<span>m</span></div>
+                </div>
+                <div class="content-s">
+                  <div class="time">{{seconds | number:'2.0'}}<span>s</span></div>
+                </div>
+              </div>
+            </div>
+
             <div class="row1-container mb text-center">
               <i class="fa fa-shirt"></i>
               <div class="box blue">
@@ -28,7 +48,8 @@
                 <p class="text-center mt-3 card-text">
                   Veja onde vamos celebrar nossa união.
                 </p>
-                <a target="_blank" href="https://www.google.com/maps/place/Igreja+Metodista+de+Palmas/@-10.2334496,-48.3229506,15z/data=!4m5!3m4!1s0x0:0xe24ef60f66597721!8m2!3d-10.2334496!4d-48.3229506"
+                <a target="_blank"
+                  href="https://www.google.com/maps/place/Igreja+Metodista+de+Palmas/@-10.2334496,-48.3229506,15z/data=!4m5!3m4!1s0x0:0xe24ef60f66597721!8m2!3d-10.2334496!4d-48.3229506"
                   class="card-button"> Ver Localização</a>
               </div>
 

@@ -1,5 +1,5 @@
 :root {
-  --blue: #192F44;
+  --blue: #192f44;
   --darkBlue: #050505;
   --gray: #b8b8b8;
   --weight1: 200;
@@ -39,7 +39,7 @@
   justify-content: center;
   padding: 10px 0;
   width: 100%;
-  background-color: #192F44;
+  background-color: #192f44;
   color: #fff;
   border-radius: 0 0 8px 8px;
   text-decoration: none;
@@ -60,13 +60,13 @@
 
 .card-button:hover {
   text-decoration: none;
-  background-color: #192F44;
+  background-color: #192f44;
   color: #fff;
 }
 
 @media (max-width: 450px) {
   .box {
-      width: 300px;
+    width: 300px;
   }
   .container {
     top: 10px;
@@ -76,13 +76,13 @@
 
 @media (max-width: 950px) and (min-width: 450px) {
   .box {
-      text-align: center;
-      height: 180px;
+    text-align: center;
+    height: 180px;
   }
 }
 
 .blue {
-  border-top: 3px solid #192F44;
+  border-top: 3px solid #192f44;
 }
 
 .gray {
@@ -91,14 +91,78 @@
 
 @media (min-width: 950px) {
   .row1-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .box {
-      width: 30%;
-      height: 15%;
+    width: 30%;
+    height: 15%;
+  }
+}
+
+.content {
+  width: 90%;
+  height: auto;
+  border-radius: 1.5rem;
+}
+
+.content-timer {
+  justify-content: center;
+  position: relative;
+  left: 5%;
+  display: flex;
+}
+
+.content-h,
+.content-m,
+.content-s .content-d {
+  height: 5rem;
+}
+
+.time {
+  font-size: 100px;
+  text-align: center;
+  font-weight: 300;
+  color: #192f44;
+}
+
+span {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #192f44;
+}
+
+@media (max-width: 450px) {
+  .content {
+    width: 90%;
+    height: auto;
+  }
+
+  .content-timer {
+    justify-content: center;
+    position: relative;
+    display: block;
+  }
+
+  .content-h,
+  .content-m,
+  .content-s .content-d {
+    height: 2%;
+  }
+
+  .time {
+    font-size: 100px;
+    text-align: center;
+    font-weight: 300;
+    color: #192f44;
+  }
+
+  span {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: #192f44;
   }
 }
 
@@ -107,8 +171,8 @@
 .links a {
   font-size: 18px;
   display: inline-block;
-  background: #192F44;
-  color: #E5E5E5;
+  background: #192f44;
+  color: #e5e5e5;
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -120,9 +184,7 @@
 }
 
 .links a:hover {
-  background: #E5E5E5;;
+  background: #e5e5e5;
   color: var(--red);
   text-decoration: none;
 }
-
-
