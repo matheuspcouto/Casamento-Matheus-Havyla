@@ -15,7 +15,7 @@ export class ListaPresenteComponent implements OnInit {
   loading = false;
   disabled: boolean = false;
   errorsValidators: ErroItem[] = [];
-  itens: Item[] = [{id: 1, nome: 'Máquina de Lavar', qtdDisponivel: 1, status: 'Disponível' }];
+  itens: Item[] = [];
   item = new Item();
   qtdEscolhida: number = 1;
 
@@ -26,17 +26,31 @@ export class ListaPresenteComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loading = true;
-    try {
-
-    } catch (error: any) {
-      this.notificationService.error(error, 'Erro');
-    }
-    this.loading = false;
+    this.getItens();
   }
 
   selecionarItem(itemSelecionado: Item) {
     this.item = itemSelecionado;
+  }
+
+  getItens() {
+    try {
+      this.loading = true;
+
+      this.listaPresentesService.getItens().subscribe({
+        next: (itens) => {
+          this.itens = itens;
+          this.loading = false;
+        },
+        error: (error: HttpErrorResponse) => {
+          this.notificationService.error(error.message, 'Erro');
+          this.loading = false;
+        },
+      });
+    } catch (error: any) {
+      this.notificationService.error(error, 'Erro');
+      this.loading = false;
+    }
   }
 
   salvarItem() {
