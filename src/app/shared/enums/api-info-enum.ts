@@ -1,4 +1,4 @@
 export enum ApiInfo {
   // INFORMAÇÕES DA PLANILHA
-  HOST = 'https://script.google.com/macros/s/AKfycbxeYkp7hJ_rppgq4AMrkiW2ZxJpuXrTc4GGvE8Jb6rVXI4It1BeVlZo6djyY4-gt-b9/exec'
+  HOST = 'https://script.google.com/macros/s/AKfycbx_6xcWquMUAJJHqqRdenGaOsAI2Ky7IKzuFn2ObeNCP4iIJs8m7xtpq8BwNtjt2OhY/exec'
 }

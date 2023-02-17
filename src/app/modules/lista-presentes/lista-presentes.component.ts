@@ -39,7 +39,7 @@ export class ListaPresenteComponent implements OnInit {
 
       this.listaPresentesService.getItens().subscribe({
         next: (itens) => {
-          this.itens = itens;
+          this.itens = itens.dados;
           this.loading = false;
         },
         error: (error: HttpErrorResponse) => {
@@ -63,7 +63,7 @@ export class ListaPresenteComponent implements OnInit {
         this.router.navigate(['comprovante']);
 
         return;
-        this.listaPresentesService.salvarItem(this.item).subscribe({
+        this.listaPresentesService.salvarItem(this.item, this.item.id).subscribe({
           next: () => {
             this.notificationService.success('Presente reservado com sucesso !','Sucesso');
             this.loading = false;

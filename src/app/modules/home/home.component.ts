@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   days: number = 0;
   animate: boolean = false;
   timer: any;
-  dataCasamento = new Date('2023-11-24T19:00:00.817Z');
+  dataCasamento = new Date('2023-11-25T20:00:00.817Z');
 
   constructor(private router: Router) {
     this.router.events.subscribe((event: Event) => {
@@ -35,36 +35,21 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.start();
-  }
-
-  updataCasamentoTimer() {
-    let dataAtual = new Date()
-
-    var timeDiff = Math.abs(this.dataCasamento.getTime() - dataAtual.getTime());
-    var resultadoDias = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-    this.days =  resultadoDias;
-    this.hours = this.dataCasamento.getHours() - dataAtual.getHours();
-    this.minutes = this.dataCasamento.getMinutes() - dataAtual.getMinutes();
-    this.seconds = this.dataCasamento.getSeconds();
-
-    const time = this.dataCasamento.getTime();
-    this.dataCasamento.setTime(time - 1000); //---
-
-    /*     if (
-      this.dataCasamento.getHours() === 0 &&
-      this.dataCasamento.getMinutes() === 0 &&
-      this.dataCasamento.getSeconds() === 0
-    ) {
-    } */
-  }
-
-  start() {
-    this.updataCasamentoTimer();
-
-    this.timer = setInterval(() => {
-      this.updataCasamentoTimer();
+    const timer = setInterval(() => {
+      const pararContagem = this.contagem();
+      if (pararContagem){ clearInterval(timer); }
     }, 1000);
+
+  }
+
+  contagem() {
+    let dataAtual = new Date();
+    const diffInMs = Math.abs(this.dataCasamento.getTime() - dataAtual.getTime());
+    this.days = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    this.hours = Math.floor((diffInMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    this.minutes = Math.floor((diffInMs % (1000 * 60 * 60)) / (1000 * 60));
+    this.seconds = Math.floor((diffInMs % (1000 * 60)) / 1000);
+
+    return this.days === 0 && this.hours === 0 && this.minutes === 0 && this.seconds === 0;
   }
 }

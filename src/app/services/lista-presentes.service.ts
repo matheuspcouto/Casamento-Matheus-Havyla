@@ -15,15 +15,15 @@ export class ListaPresentesService {
   private headers = new HttpHeaders({'Content-Type': 'text/plain;charset=UTF-8'});
 
   getItens(): Observable<any> {
-    return this.httpClient.get<any>(`${ApiInfo.HOST}?action=getPresentes`, { headers: this.headers });
+    return this.httpClient.get<any>(`${ApiInfo.HOST}?method=itens`, { headers: this.headers });
   }
 
-  getItemByNome(codigoProduto: any): Observable<any> {
-    return this.httpClient.get<any>(`${ApiInfo.HOST}/search?nome=${codigoProduto}`, { headers: this.headers });
+  getItemById(id: any): Observable<any> {
+    return this.httpClient.get<any>(`${ApiInfo.HOST}method=item&id=${id}`, { headers: this.headers });
   }
 
-  salvarItem(body: any): Observable<any> {
+  salvarItem(body: any, id: any): Observable<any> {
     const requestBody = JSON.stringify(body);
-    return this.httpClient.patch<any>(`${ApiInfo.HOST}`, requestBody, { headers: this.headers });
+    return this.httpClient.post<any>(`${ApiInfo.HOST}method=item&id=${id}`, requestBody, { headers: this.headers });
   }
 }
