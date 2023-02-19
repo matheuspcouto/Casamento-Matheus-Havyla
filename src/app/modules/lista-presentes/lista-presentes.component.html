@@ -18,29 +18,127 @@
             <div class="divImg mt-3">
               <img src="assets/logo.png" class="img" />
             </div>
-            <h2 class="card-title text-center mt-3" id="titulo">
+            <h2 class="card-title text-center mt-3">
               Lista de Presentes
             </h2>
-            <p class="card-title text-center mt-3" id="titulo">
+            <p class="card-title text-center mt-3">
               Confira os itens da nossa lista de presente, selecione e informe a quantidade para reservar.
+            </p>
+            <br>
+            <p class="card-title text-center mt-3">
+              Obs: Caso deseje nos presentear de outra forma, temos uma conta disponível para envio de pix. A chave é o
+              CPF: <b>04886126162</b>.
             </p>
             <br />
 
-            <div class="my-login-validation table-responsive" *ngIf="itens.length > 0">
+            <div class="my-login-validation table-responsive" *ngIf="itensCozinha.length > 0">
+              <h4 class="card-title text-left mt-3">Cozinha</h4>
               <table class="table table-hover">
                 <thead>
                   <tr>
                     <th scope="col">Item</th>
-                    <th scope="col">Qtd Disponível</th>
+                    <th scope="col">Qtd</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of itens; let i = index">
+                  <tr *ngFor="let item of itensCozinha; let i = index">
                     <td>{{item.nome}}</td>
                     <td>{{item.qtdDisponivel}}</td>
                     <td>
-                      <button type="button"  style="width: 100px;" class="btn btn-outline-primary btn-sm"
+                      <button type="button" style="width: 100px;" class="btn btn-outline-primary btn-sm"
+                        (click)="selecionarItem(item)"><b>Selecionar</b></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="my-login-validation table-responsive" *ngIf="itensEletrodomesticos.length > 0">
+              <h4 class="card-title text-left mt-3">Eletrodomésticos</h4>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Qtd</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of itensEletrodomesticos; let i = index">
+                    <td>{{item.nome}}</td>
+                    <td>{{item.qtdDisponivel}}</td>
+                    <td>
+                      <button type="button" style="width: 100px;" class="btn btn-outline-primary btn-sm"
+                        (click)="selecionarItem(item)"><b>Selecionar</b></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="my-login-validation table-responsive" *ngIf="itensCamaMesaBanho.length > 0">
+              <h4 class="card-title text-left mt-3">Cama, Mesa e Banho</h4>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Qtd</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of itensCamaMesaBanho; let i = index">
+                    <td>{{item.nome}}</td>
+                    <td>{{item.qtdDisponivel}}</td>
+                    <td>
+                      <button type="button" style="width: 100px;" class="btn btn-outline-primary btn-sm"
+                        (click)="selecionarItem(item)"><b>Selecionar</b></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="my-login-validation table-responsive" *ngIf="itensMoveis.length > 0">
+              <h4 class="card-title text-left mt-3">Móveis</h4>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Qtd</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of itensMoveis; let i = index">
+                    <td>{{item.nome}}</td>
+                    <td>{{item.qtdDisponivel}}</td>
+                    <td>
+                      <button type="button" style="width: 100px;" class="btn btn-outline-primary btn-sm"
+                        (click)="selecionarItem(item)"><b>Selecionar</b></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="my-login-validation table-responsive" *ngIf="itensOutros.length > 0">
+              <h4 class="card-title text-left mt-3">Outros</h4>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Qtd</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of itensOutros; let i = index">
+                    <td>{{item.nome}}</td>
+                    <td>{{item.qtdDisponivel}}</td>
+                    <td>
+                      <button type="button" style="width: 100px;" class="btn btn-outline-primary btn-sm"
                         (click)="selecionarItem(item)"><b>Selecionar</b></button>
                     </td>
                   </tr>
@@ -49,24 +147,29 @@
             </div>
             <br>
 
-            <div class="form-group">
+            <div class="form-group" *ngIf="item.id">
+
+                <button type="button" (click)="resetItem()" class="btn btnClose text-center">
+                  <i class="fa fa-close"></i>
+                </button>
+
               <h5 class="card-title text-left">Item: {{item.nome}}</h5>
               <label>Quantidade</label>
-              <input type="number" name="qtd" [(ngModel)]="qtdEscolhida" [disabled]="item.id == null"
-                class="form-control text-center" required
+              <input type="number" name="qtd" [(ngModel)]="qtdEscolhida" class="form-control text-center" required
                 placeholder="Informe a quantidade" />
               <div *ngIf="errorsValidators">
                 <div *ngFor="let erro of errorsValidators">
                   <p class="label-error" *ngIf="erro.controleErro === 'quantidade'">{{erro.mensagemErro}}</p>
                 </div>
               </div>
+              <br>
+              <div class="form-group m-0">
+                <button (click)="salvarItem()" type="button" class="btn btn-success btn-block">
+                  Reservar Presente <i class="fa fa-gift"></i>
+                </button>
+              </div>
             </div>
 
-            <div class="form-group m-0">
-              <button [disabled]="item.id == null" (click)="salvarItem()" type="button" class="btn btn-success btn-block">
-                Reservar Presente <i class="fa fa-gift"></i>
-              </button>
-            </div>
           </div>
         </div>
       </div>

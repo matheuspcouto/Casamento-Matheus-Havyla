@@ -2,3 +2,9 @@
   color: brown;
   font-size: small;
 }
+
+.btnClose {
+  right: 4%;
+  position: absolute;
+  line-height: 1;
+}
