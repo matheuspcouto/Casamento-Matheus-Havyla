@@ -1,3 +1,4 @@
+import { ApiInfo } from './../shared/enums/api-info-enum';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,15 +15,15 @@ export class ListaPresentesService {
   private headers = new HttpHeaders({'Content-Type': 'text/plain;charset=UTF-8'});
 
   getItens(): Observable<any> {
-    return this.httpClient.get<any>(`/api?method=itens`, { headers: this.headers });
+    return this.httpClient.get<any>(`${ApiInfo.HOST}?method=itens`, { headers: this.headers });
   }
 
   getItemById(id: any): Observable<any> {
-    return this.httpClient.get<any>(`/api?method=item&id=${id}`, { headers: this.headers });
+    return this.httpClient.get<any>(`${ApiInfo.HOST}?method=item&id=${id}`, { headers: this.headers });
   }
 
   salvarItem(body: any, id: any): Observable<any> {
     const requestBody = JSON.stringify(body);
-    return this.httpClient.post<any>(`/api?method=item&id=${id}`, requestBody, { headers: this.headers });
+    return this.httpClient.post<any>(`${ApiInfo.HOST}?method=item&id=${id}`, requestBody, { headers: this.headers });
   }
 }
