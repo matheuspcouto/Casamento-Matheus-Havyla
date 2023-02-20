@@ -37,6 +37,7 @@ export class ListaPresenteComponent implements OnInit {
 
   selecionarItem(itemSelecionado: Item) {
     this.item = itemSelecionado;
+    (document.getElementById('qtd') as HTMLElement).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 
   atualizarItens() {
