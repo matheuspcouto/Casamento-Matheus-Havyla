@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   days: number = 0;
   animate: boolean = false;
   timer: any;
-  dataCasamento = new Date('2023-11-25T20:00:00.817Z');
+  dataCasamento = new Date('2023-11-25T19:00:00.817Z');
 
   constructor(private router: Router) {
     this.router.events.subscribe((event: Event) => {
