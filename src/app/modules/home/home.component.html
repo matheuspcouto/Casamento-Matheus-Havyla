@@ -9,34 +9,37 @@
         <div class="card fat">
           <div class="card-body" style="background-color: #EFECE7">
             <div class="divImg mt-3"><img src="assets/logo.png" class="img" /></div>
-            <h2 class="card-title text-center mt-3" >
+            <h2 class="card-title text-center mt-3">
               Casamento
             </h2>
-            <h2 class="card-title text-center mt-0" >
+            <h2 class="card-title text-center mt-0">
               Matheus & Hávyla
             </h2>
             <hr />
             <h6 class="card-title text-center mt-3">
               Seja bem vindo ao site do nosso casamento, aqui você encontra as informações sobre o local da cerimônia, a
-              lista de presentes e ainda confirma sua presença. Esperamos você no dia 25 de Novembro para se alegrar conosco.
+              lista de presentes e ainda confirma sua presença. Esperamos você no dia 25 de Novembro para se alegrar
+              conosco.
             </h6>
 
-            <h5 class="card-title text-center mt-3">
-              Faltam exatamente:
-            </h5>
-            <div class="content" [class.move]="animate">
-              <div class="content-timer">
-                <div class="content-d">
-                  <div class="time">{{ days | number:'2.0'}}<span>d</span></div>
-                </div>
-                <div class="content-h">
-                  <div class="time">{{ hours | number:'2.0'}}<span>h</span></div>
-                </div>
-                <div class="content-m">
-                  <div class="time">{{ minutes | number:'2.0'}}<span>m</span></div>
-                </div>
-                <div class="content-s">
-                  <div class="time">{{seconds | number:'2.0'}}<span>s</span></div>
+            <div *ngIf="!contagem()">
+              <h5 class="card-title text-center mt-3">
+                Faltam exatamente:
+              </h5>
+              <div class="content" [class.move]="animate">
+                <div class="content-timer">
+                  <div class="content-d">
+                    <div class="time">{{ days | number:'2.0'}}<span>d</span></div>
+                  </div>
+                  <div class="content-h">
+                    <div class="time">{{ hours | number:'2.0'}}<span>h</span></div>
+                  </div>
+                  <div class="content-m">
+                    <div class="time">{{ minutes | number:'2.0'}}<span>m</span></div>
+                  </div>
+                  <div class="content-s">
+                    <div class="time">{{seconds | number:'2.0'}}<span>s</span></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -75,7 +78,7 @@
                 <p class="text-center mt-3 card-text">
                   Confirme sua presença na nossa cerimônia.
                 </p>
-                <a  target="_blank" href="https://forms.gle/eowMY9ZAGwremseb7" class="card-button"> Ver mais</a>
+                <a target="_blank" href="https://forms.gle/eowMY9ZAGwremseb7" class="card-button"> Ver mais</a>
               </div>
             </div>
 
